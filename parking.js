@@ -19,7 +19,7 @@ app.get('/stops', function(request, response) {
     console.log("lat" + lat);
     console.log(request.query);
     busesRetriever(lat, lng, function(businfo) {
-        console.log(businfo);
+        console.log("WAAAH" + businfo + "Waah");
         response.send(200, JSON.stringify(businfo));
     });
 });

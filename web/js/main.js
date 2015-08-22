@@ -46,18 +46,41 @@ function showWindow(marker, pinfo){
     return function() {
         console.log(pinfo.coords);
         httpGetAsync("/stops?lat=" + pinfo.coords.lat + "&lng=" + pinfo.coords.lng, function(body){
+
             var stopinfo = JSON.parse(body);
+            var stopnames = stopinfo.stopnames;
             var cnt = pinfo.name + " is occupied by " + pinfo.count + " cars, of a capacity of " + pinfo.capacity;
-            for(var i in stopinfo){
-                cnt += "<br>";
-                cnt += stopinfo[i].name;
+            for(var i in stopnames){
+                cnt += "<br><b>";
+                cnt += stopnames[i] + "</b>";
+                var stops = stopinfo.stops[stopnames[i]];
+                for(var j in stops){
+                    cnt += "<br>";
+                    cnt += stops[j].name + " " + stops[j].time + " " + stops[j].direction;
+                }
             }
-            new google.maps.InfoWindow({
-                content: cnt
-            }).open(map, marker);
+
+            var infoBubble = new InfoBubble({
+                map: map,
+                content: cnt,
+                shadowStyle: 1,
+                padding: 5,
+                backgroundColor: 'rgb(91,155,213)',
+                borderRadius: 10,
+                arrowSize: 10,
+                borderWidth: 1,
+                borderColor: '#2c2c2c',
+                disableAutoPan: false,
+                hideCloseButton: false,
+                arrowPosition: 50,
+                backgroundClassName: 'transparent',
+                arrowStyle: 2
+            });
+            infoBubble.open(window.map, marker);
+            //new google.maps.InfoWindow({
+            //    content: cnt
+           // }).open(map, marker);
         });
-
-
     }
 }
 
