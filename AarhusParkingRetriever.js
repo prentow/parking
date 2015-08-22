@@ -37,7 +37,7 @@ function parseParkingData(jsonRecords){
         var curRecord = records[pinfo];
         if(parkingMap[curRecord.garageCode] != null){
             parkingInfos.push({
-                name : curRecord.garageCode,
+                name : parkingMap[curRecord.garageCode].prettyName,
                 coords : {
                     lat: parkingMap[curRecord.garageCode].lat,
                     lng: parkingMap[curRecord.garageCode].lng
