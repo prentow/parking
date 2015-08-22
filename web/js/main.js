@@ -32,12 +32,32 @@ function retrievedPositions(response)
         var capacity = parkings[pinfo].capacity;
         var count = parkings[pinfo].count;
         var img = Math.floor(count/capacity*6) +1;
-        var marker = new google.maps.Marker({
+        parkings[pinfo].marker = new google.maps.Marker({
             position: parkings[pinfo].coords,
             map: window.map,
             title: parkings[pinfo].name + " " + parkings[pinfo].count + "/" + parkings[pinfo].capacity,
             icon: 'img/park' + img + '.png'
         });
+        parkings[pinfo].marker.addListener('click', showWindow(parkings[pinfo].marker, parkings[pinfo]));
+    }
+}
+
+function showWindow(marker, pinfo){
+    return function() {
+        console.log(pinfo.coords);
+        httpGetAsync("/stops?lat=" + pinfo.coords.lat + "&lng=" + pinfo.coords.lng, function(body){
+            var stopinfo = JSON.parse(body);
+            var cnt = pinfo.name + " is occupied by " + pinfo.count + " cars, of a capacity of " + pinfo.capacity;
+            for(var i in stopinfo){
+                cnt += "<br>";
+                cnt += stopinfo[i].name;
+            }
+            new google.maps.InfoWindow({
+                content: cnt
+            }).open(map, marker);
+        });
+
+
     }
 }
 
