@@ -31,7 +31,7 @@ function retrievedPositions(response)
     var parkings = JSON.parse(response);
     console.log(response);
     for(var pinfo in parkings){
-        var parkPos = {lat: parkings[pinfo].lat, lng: parkings[pinfo].long};
+        var parkPos = parkings[pinfo].coords;
         var marker = new google.maps.Marker({
             position: parkPos,
             map: window.map,
