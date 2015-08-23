@@ -17,5 +17,6 @@ config.busesretriever.host = 'xmlopen.rejseplanen.dk';
 config.busesretriever.path.stopsnearby = '/bin/rest.exe/stopsNearby';
 config.busesretriever.path.departureboard = '/bin/rest.exe/multiDepartureBoard';
 config.busesretriever.maxconnections = 10;
+config.busesretriever.bustimezone = 'Europe/Berlin';
 
 module.exports = config;

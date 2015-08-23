@@ -7,6 +7,7 @@
     "mocha" : "2.2.x",
     "mockery" : "1.4.x",
     "chai" : "3.2.x",
-    "array.prototype.find" : "1.0.x"
+    "array.prototype.find" : "1.0.x",
+    "moment-timezone" : "0.4.x"
   }
 }

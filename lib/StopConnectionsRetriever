@@ -2,13 +2,14 @@ var http = require('http');
 var config = require('./../config');
 var parseXml = require('xml2js').parseString;
 var httpHelper = require('./HttpHelper');
-
+var moment = require('moment-timezone');
 
 function RetrieveConnections(ids, callback){
     var now = new Date();
+    var nowTz = moment.tz(now,config.busesretriever.bustimezone);
     var params = {
-        date : now.getDate() + "." + (now.getMonth()+1) + "." + (now.getFullYear()%100),
-        time : now.getHours() + ":" + now.getMinutes()
+        date : nowTz.date() + "." + (nowTz.month()+1) + "." + (nowTz.year()%100),
+        time : nowTz.hours() + ":" + nowTz.minutes()
     }
     for(var i in ids){
         params['id' + (parseInt(i)+1)] = ids[i];
