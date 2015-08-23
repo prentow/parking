@@ -36,6 +36,7 @@ describe('AarhusParkingRetriever', function() {
         mockery.registerAllowable('http');
         mockery.registerAllowable('./../config');
         mockery.registerAllowable('./AarhusParkingMap');
+        mockery.registerMock('./HttpHelper', helperStub);
         mockery.registerAllowable('./../lib/AarhusParkingRetriever', true);
         retriever = require("./../lib/AarhusParkingRetriever").ParkingRetriever();
     });
@@ -49,7 +50,6 @@ describe('AarhusParkingRetriever', function() {
     });
 
     describe('#retrieveData()', function () {
-        mockery.registerMock('./HttpHelper', helperStub);
         it('Should parse response correctly', function (done) {
             retriever.retrieveData(function(err, data){
                 assert.isTrue(!err);
