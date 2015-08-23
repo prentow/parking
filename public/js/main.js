@@ -11,7 +11,20 @@ function initialize() {
     window.map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
 
+    setMarkers();
+}
+
+var markers = []
+
+function setMarkers(){
     httpGetAsync("/parking", retrievedPositions);
+}
+
+function clearMarkers(){
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+    }
+    markers = [];
 }
 
 function httpGetAsync(theUrl, callback)
@@ -27,6 +40,7 @@ function httpGetAsync(theUrl, callback)
 
 function retrievedPositions(response)
 {
+    clearMarkers();
     var parkings = JSON.parse(response);
     for(var pinfo in parkings){
         var capacity = parkings[pinfo].capacity;
@@ -38,8 +52,12 @@ function retrievedPositions(response)
             title: parkings[pinfo].name + ": " + parkings[pinfo].count + "/" + parkings[pinfo].capacity,
             icon: 'img/park' + img + '.png'
         });
+        markers.push(parkings[pinfo].marker);
         parkings[pinfo].marker.addListener('click', showWindow(parkings[pinfo].marker, parkings[pinfo]));
     }
+    setTimeout(function () {
+        setMarkers();
+    },60000);
 }
 
 function showWindow(marker, pinfo){
