@@ -3,14 +3,9 @@ var mockery = require('mockery');
 var fs = require('fs');
 require('array.prototype.find');
 
-var helperStuba = {
+var helperStub = {
     makeRequest : function(host, path,params, callback){
-        var file;
-        if(path.indexOf('stopsNearby') != -1)
-            file =  __dirname + '/data/stopLocationsResponse.txt';
-        else
-            file =  __dirname + '/data/nearbyConnectionsResponse.txt';
-        fs.readFile(file, function (err, data) {
+        fs.readFile(__dirname + '/data/nearbyConnectionsResponse.txt', function (err, data) {
             if (err) {
                 throw err;
             }
@@ -30,7 +25,7 @@ describe('NearbyConnectionsRetriever', function() {
 
     beforeEach(function() {
         mockery.registerMock('./HttpHelper', helperStub);
-        retriever = require("./../lib/NearbyConnectionsRetriever");
+        retriever = require("./../lib/StopConnectionsRetriever");
     });
 
     afterEach(function(){
@@ -41,11 +36,10 @@ describe('NearbyConnectionsRetriever', function() {
         mockery.disable();
     });
 
-    describe('#RetrieveConnections()', function () {
+    describe('#RetrieveStops()', function () {
         it('Should parse responses correctly', function (done) {
-            var lat = '56.23423423';
-            var lng = '10.32423423';
-            retriever.RetrieveConnections(lat, lng, function(err, data){
+            var idList = ['751414900', '751414400', '751415000'];
+            retriever.RetrieveConnections(idList, function(err, data){
                 assert.equal(data.stopnames.length, 3);
                 assert.notEqual(data.stopnames.indexOf('Busgaden (Aarhus)'), -1);
                 assert.equal(data.stops['Busgaden (Aarhus)'].length, 5);
