@@ -4,6 +4,9 @@
   "dependencies" : {
     "express" : "3.x",
     "xml2js" : "0.4.x",
-    "mocha" : "2.2.x"
+    "mocha" : "2.2.x",
+    "mockery" : "1.4.x",
+    "chai" : "3.2.x",
+    "array.prototype.find" : "1.0.x"
   }
 }
