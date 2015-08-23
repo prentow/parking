@@ -8,6 +8,7 @@
     "mockery" : "1.4.x",
     "chai" : "3.2.x",
     "array.prototype.find" : "1.0.x",
-    "moment-timezone" : "0.4.x"
+    "moment-timezone" : "0.4.x",
+    "log4js" : "0.6.x"
   }
 }
