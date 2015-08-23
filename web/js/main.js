@@ -1,13 +1,13 @@
-
 function initialize() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(retrievedUserPosition)
     }
 
     var mapOptions = {
-        center: {lat: 56.1572, lng: 10.2107},
-        zoom: 15
+        center: {lat: config.coords.lat, lng: config.coords.lng},
+        zoom: config.zoomLvl
     };
+
     window.map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
 
@@ -35,7 +35,7 @@ function retrievedPositions(response)
         parkings[pinfo].marker = new google.maps.Marker({
             position: parkings[pinfo].coords,
             map: window.map,
-            title: parkings[pinfo].name + " " + parkings[pinfo].count + "/" + parkings[pinfo].capacity,
+            title: parkings[pinfo].name + ": " + parkings[pinfo].count + "/" + parkings[pinfo].capacity,
             icon: 'img/park' + img + '.png'
         });
         parkings[pinfo].marker.addListener('click', showWindow(parkings[pinfo].marker, parkings[pinfo]));
@@ -44,54 +44,27 @@ function retrievedPositions(response)
 
 function showWindow(marker, pinfo){
     return function() {
-        console.log(pinfo.coords);
         httpGetAsync("/stops?lat=" + pinfo.coords.lat + "&lng=" + pinfo.coords.lng, function(body){
-
             var stopinfo = JSON.parse(body);
             var stopnames = stopinfo.stopnames;
-            var cnt = pinfo.name + " is occupied by " + pinfo.count + " cars, of a capacity of " + pinfo.capacity;
+            var cnt = "<h3>" + pinfo.name + "</h3>";
+            cnt += pinfo.count + " of " + pinfo.capacity + " spaces occupied.";
+            cnt += '<br>Onwards connections at the following stops:';
             for(var i in stopnames){
-                cnt += "<br><b>";
+                cnt += "<br><br><b>";
                 cnt += stopnames[i] + "</b>";
                 var stops = stopinfo.stops[stopnames[i]];
                 for(var j in stops){
                     cnt += "<br>";
-                    cnt += stops[j].name + " " + stops[j].time + " " + stops[j].direction;
+                    cnt += stops[j].time + ": " + stops[j].name + " -> "  + stops[j].direction;
                 }
-            }
-
-            var infoBubble = new InfoBubble({
-                map: map,
-                content: cnt,
-                shadowStyle: 1,
-                padding: 5,
-                backgroundColor: 'rgb(91,155,213)',
-                borderRadius: 10,
-                arrowSize: 10,
-                borderWidth: 1,
-                borderColor: '#2c2c2c',
-                disableAutoPan: false,
-                hideCloseButton: false,
-                arrowPosition: 50,
-                backgroundClassName: 'transparent',
-                arrowStyle: 2
+            };
+            var infowindow = new google.maps.InfoWindow({
+                content: cnt
             });
-            infoBubble.open(window.map, marker);
-            //new google.maps.InfoWindow({
-            //    content: cnt
-           // }).open(map, marker);
+            infowindow.open(window.map, marker);
         });
     }
-}
-
-function setMarker()
-{
-    var parkPos = {lat: 56.1572, lng: 10.2107};
-    var marker = new google.maps.Marker({
-        position: parkPos,
-        map: window.map,
-        title: 'Hello World!'
-    });
 }
 
 function retrievedUserPosition(position) {
@@ -99,7 +72,7 @@ function retrievedUserPosition(position) {
         position: {lat: position.coords.latitude, lng: position.coords.longitude},
         map: window.map,
         title: 'You!',
-        icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+        icon: 'img/sportscar.png'
     });
 }
 
