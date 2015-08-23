@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LocationList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://xmlopen.rejseplanen.dk/xml/rest/hafasRestStopsNearby.xsd">
+<StopLocation name="Emil Vetts Passage (Aarhus)" x="10205318" y="56156880" id="751414900" distance="29" />
+
+<StopLocation name="Busgaden (Aarhus)" x="10206172" y="56155505" id="751414400" distance="157" />
+
+<StopLocation name="Klostertorvet (Aarhus)" x="10205705" y="56158480" id="751415000" distance="200" />
+
+</LocationList>

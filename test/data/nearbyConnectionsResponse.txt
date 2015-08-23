@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MultiDepartureBoard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://xmlopen.rejseplanen.dk/xml/rest/hafasRestMultiDepartureBoard.xsd">
+<Departure name="Bybus 18" type="TB" stop="Emil Vetts Passage (Aarhus)" time="15:57" date="23.08.15" messages="0" finalStop="Moesgård Museum (Aarhus)" direction="Moesgaard Museum">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=882831%2F308291%2F880576%2F146013%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 2A" type="TB" stop="Emil Vetts Passage (Aarhus)" time="15:57" date="23.08.15" messages="0" finalStop="Bjødstrupvej/Karetmagertoften (Aarhus)" direction="Holme">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=703977%2F253810%2F15028%2F227148%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 4A" type="TB" stop="Klostertorvet (Aarhus)" time="15:59" date="23.08.15" messages="0" finalStop="Tranbjerg Øst. Hyrdevænget (Aarhus)" direction="Tranbjerg Øst">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=874716%2F310851%2F807784%2F112330%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 11" type="TB" stop="Klostertorvet (Aarhus)" time="16:01" date="23.08.15" messages="0" finalStop="Stavtrup Vest Blåhøj" direction="Stavtrup Blåhøj via Søholm">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=750828%2F263368%2F644842%2F72147%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 2A" type="TB" stop="Busgaden (Aarhus)" time="16:02" date="23.08.15" messages="0" finalStop="Aarhus Universitetshospital. Skejby. indg 8-11" direction="AUH Skejby">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=31242%2F29555%2F301012%2F140093%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 33" type="TB" stop="Busgaden (Aarhus)" time="16:02" date="23.08.15" messages="0" finalStop="Aarhus Ø. Jette Tikjøbs Plads (Aarhus)" direction="Aarhus Ø">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=262569%2F110733%2F650588%2F237781%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 1A" type="TB" stop="Klostertorvet (Aarhus)" time="16:04" date="23.08.15" messages="1" finalStop="Kolt Østervej/Kolt Kirkevej (Aarhus)" direction="Kolt">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=219405%2F92122%2F416628%2F135180%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 1A" type="TB" stop="Busgaden (Aarhus)" time="16:05" date="23.08.15" messages="1" finalStop="Lystrup Øst. Majsmarken (Aarhus)" direction="Lystrup via AUH Skejby">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=546612%2F201135%2F823970%2F229782%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 4A" type="TB" stop="Busgaden (Aarhus)" time="16:06" date="23.08.15" messages="0" finalStop="Brabrand Nord. Skjoldhøjkollegiet Spobjergvej (Aar" direction="Brabrand Nord">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=165732%2F74569%2F457908%2F173722%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 3A" type="TB" stop="Busgaden (Aarhus)" time="16:08" date="23.08.15" messages="0" finalStop="Tilst Vestervej/Havkærvej (Aarhus)" direction="Tilst">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=995796%2F351178%2F179974%2F241963%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 20" type="TB" stop="Busgaden (Aarhus)" time="16:09" date="23.08.15" messages="0" finalStop="Åkrogen (Aarhus)" direction="Åkrogen">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=926448%2F327852%2F441642%2F88000%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 3A" type="TB" stop="Klostertorvet (Aarhus)" time="16:09" date="23.08.15" messages="0" finalStop="Aarhus Rutebilstation. Sønder Allé/Fredensgade" direction="Rutebilstationen">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=159327%2F72341%2F891538%2F392674%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 2A" type="TB" stop="Klostertorvet (Aarhus)" time="16:11" date="23.08.15" messages="0" finalStop="Bjødstrupvej/Karetmagertoften (Aarhus)" direction="Holme">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=193593%2F83682%2F85338%2F21866%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 4A" type="TB" stop="Klostertorvet (Aarhus)" time="16:14" date="23.08.15" messages="0" finalStop="Tranbjerg Vest. Tingskov Allé (Aarhus)" direction="Tranbjerg Vest">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=749643%2F269193%2F50624%2F224579%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 17" type="TB" stop="Klostertorvet (Aarhus)" time="16:16" date="23.08.15" messages="0" finalStop="Langenæs. Augustenborggade (Aarhus)" direction="Langenæs">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=598062%2F213325%2F228086%2F85317%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 2A" type="TB" stop="Busgaden (Aarhus)" time="16:17" date="23.08.15" messages="0" finalStop="Aarhus Universitetshospital. Skejby. indg 8-11" direction="AUH Skejby">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=518850%2F192091%2F684744%2F169424%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 1A" type="TB" stop="Klostertorvet (Aarhus)" time="16:19" date="23.08.15" messages="1" finalStop="Kolt Østervej/Kolt Kirkevej (Aarhus)" direction="Kolt">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=656772%2F237902%2F177990%2F129931%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 1A" type="TB" stop="Busgaden (Aarhus)" time="16:20" date="23.08.15" messages="1" finalStop="Holmkær/Vestermøllevej. Trige (Aarhus)" direction="Trige via AUH Skejby">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=582396%2F213087%2F386566%2F850%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 4A" type="TB" stop="Busgaden (Aarhus)" time="16:21" date="23.08.15" messages="0" finalStop="Brabrand Nord. Skjoldhøjkollegiet Spobjergvej (Aar" direction="Brabrand Nord">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=474804%2F177607%2F225076%2F45742%2F86%3Fdate%3D23.08.15" />
+</Departure>
+<Departure name="Bybus 11" type="TB" stop="Busgaden (Aarhus)" time="16:22" date="23.08.15" messages="0" finalStop="Harlev. Rødlundvej Syd (Aarhus)" direction="Linje 11: Harlev">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=82272%2F58035%2F7966%2F23443%2F86%3Fdate%3D23.08.15" />
+</Departure>
+</MultiDepartureBoard>

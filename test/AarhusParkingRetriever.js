@@ -1,5 +1,4 @@
 var assert = require("chai").assert;
-var should = require('chai').should()
 var mockery = require('mockery');
 var fs = require('fs');
 require('array.prototype.find');
@@ -7,7 +6,7 @@ require('array.prototype.find');
 
 var cnt = 0;
 var helperStub = {
-    makeRequest : function(host, path, callback){
+    makeRequest : function(host, path,params, callback){
         cnt++;
         if(cnt == 2) {
             callback(new Error("EEE"));
@@ -22,14 +21,18 @@ var helperStub = {
 }
 
 var badHelperStub = {
-    makeRequest : function(host, path, callback){
+    makeRequest : function(host, path,params, callback){
         callback(new Error("Error occured!"));
     }
 }
 
 describe('AarhusParkingRetriever', function() {
     before(function(){
-        mockery.enable();
+        mockery.enable({
+            warnOnReplace: false,
+            warnOnUnregistered: false,
+            useCleanCache: true
+        });
     });
 
     beforeEach(function() {
