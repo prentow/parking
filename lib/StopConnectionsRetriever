@@ -15,6 +15,10 @@ function RetrieveConnections(ids, callback){
         params['id' + (parseInt(i)+1)] = ids[i];
     }
     httpHelper.makeRequest(config.busesretriever.host, config.busesretriever.path.departureboard,params, function(err,body) {
+        if(err){
+            callback(err);
+            return;
+        }
         parseXml(body, function (err, result) {
             if(err){
                 callback(err);

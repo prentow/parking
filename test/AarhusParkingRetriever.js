@@ -3,30 +3,31 @@ var mockery = require('mockery');
 var fs = require('fs');
 require('array.prototype.find');
 
-
-var cnt = 0;
-var helperStub = {
-    makeRequest : function(host, path,params, callback){
-        cnt++;
-        if(cnt == 2) {
-            callback(new Error("EEE"));
-        }
-        fs.readFile( __dirname + '/data/odaResponse.txt', function (err, data) {
-            if (err) {
-                throw err;
-            }
-            callback(null, data);
-        });
-    }
-}
-
-var badHelperStub = {
-    makeRequest : function(host, path,params, callback){
-        callback(new Error("Error occured!"));
-    }
-}
-
 describe('AarhusParkingRetriever', function() {
+
+    var cnt = 0;
+    var helperStub = {
+        makeRequest : function(host, path,params, callback){
+            cnt++;
+            if(cnt == 2) {
+                callback(new Error("EEE"));
+                return;
+            }
+            fs.readFile( __dirname + '/data/odaResponse.txt', function (err, data) {
+                if (err) {
+                    throw err;
+                }
+                callback(null, data);
+            });
+        }
+    }
+
+    var badHelperStub = {
+        makeRequest : function(host, path,params, callback){
+            callback(new Error("Error occured!"));
+        }
+    }
+
     before(function(){
         mockery.enable({
             warnOnReplace: false,
@@ -36,11 +37,7 @@ describe('AarhusParkingRetriever', function() {
     });
 
     beforeEach(function() {
-        mockery.registerAllowable('http');
-        mockery.registerAllowable('./../config');
-        mockery.registerAllowable('./AarhusParkingMap');
         mockery.registerMock('./HttpHelper', helperStub);
-        mockery.registerAllowable('./../lib/AarhusParkingRetriever', true);
         retriever = require("./../lib/AarhusParkingRetriever").ParkingRetriever();
     });
 

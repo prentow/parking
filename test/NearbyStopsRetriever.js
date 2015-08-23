@@ -3,7 +3,7 @@ var mockery = require('mockery');
 var fs = require('fs');
 require('array.prototype.find');
 
-describe('NearbyConnectionsRetriever', function() {
+describe('NearbyStopsRetriever', function() {
 
     var cnt = 0;
     var helperStub = {
@@ -13,7 +13,7 @@ describe('NearbyConnectionsRetriever', function() {
                 callback(new Error("EEE"));
                 return;
             }
-            fs.readFile(__dirname + '/data/nearbyConnectionsResponse.txt', function (err, data) {
+            fs.readFile(__dirname + '/data/stopLocationsResponse.txt', function (err, data) {
                 if (err) {
                     throw err;
                 }
@@ -32,7 +32,7 @@ describe('NearbyConnectionsRetriever', function() {
 
     beforeEach(function() {
         mockery.registerMock('./HttpHelper', helperStub);
-        retriever = require("./../lib/StopConnectionsRetriever");
+        retriever = require("./../lib/NearbyStopsRetriever");
     });
 
     afterEach(function(){
@@ -43,23 +43,22 @@ describe('NearbyConnectionsRetriever', function() {
         mockery.disable();
     });
 
-    describe('#RetrieveConnections()', function () {
+    describe('#RetrieveStops()', function () {
         it('Should parse responses correctly', function (done) {
-            var idList = ['751414900', '751414400', '751415000'];
-            retriever.RetrieveConnections(idList, function(err, data){
-                assert.equal(data.stopnames.length, 3);
-                assert.notEqual(data.stopnames.indexOf('Busgaden (Aarhus)'), -1);
-                assert.equal(data.stops['Busgaden (Aarhus)'].length, 5);
-                assert.equal(data.stops['Busgaden (Aarhus)'][0].name,'Bybus 2A');
-                assert.equal(data.stops['Busgaden (Aarhus)'][0].stop,'Busgaden (Aarhus)');
-                assert.equal(data.stops['Busgaden (Aarhus)'][0].time,'16:02');
-                assert.equal(data.stops['Busgaden (Aarhus)'][0].direction, 'AUH Skejby');
+            var lat = 56.12343;
+            var lng = 10.23423;
+            retriever.RetrieveStops(lat, lng, function(err, data){
+                assert.equal(data.length, 3);
+                assert.notEqual(data.indexOf('751414900'), -1);
+                assert.notEqual(data.indexOf('751414400'), -1);
+                assert.notEqual(data.indexOf('751415000'), -1);
                 done();
             });
         });
         it('Should give error in case of no response', function (done) {
-            var idList = ['751414900', '751414400', '751415000'];
-            retriever.RetrieveConnections(idList,function(err, data){
+            var lat = 56.12343;
+            var lng = 10.23423;
+            retriever.RetrieveStops(lat, lng,function(err, data){
                 assert.isOk(err);
                 done();
             })
