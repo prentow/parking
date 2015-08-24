@@ -53,7 +53,7 @@ describe('AarhusParkingRetriever', function() {
         it('Should parse response correctly', function (done) {
             retriever.retrieveData(function(err, data){
                 assert.isTrue(!err);
-                assert.equal(data.length, 10);
+                assert.equal(data.length, 9);
                 var salling = data.find(function(a) {return a.name == 'Salling';});
                 assert.ok(salling);
                 assert.equal(salling.capacity, 700);
