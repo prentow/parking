@@ -27,26 +27,29 @@ Deployment
 Requires:
     * Node.js installation with npm
 Steps:
-    * run 'npm install'
-    * run 'node index.js'
+```
+    npm install
+    node index.js
+```
 
 Configuration
 -----------
-The application is configured through the config.js file.
+The application is configured through the [config.js](config.js) file.
 
 Backend
 -----------
 The backend is build on the Node.js platform and the Express web application framework.
 
-The source is available in /lib.
+The source is available in [/lib](/lib).
 
 ### Testing
-The application uses the Mocha framework for testing.
+The application uses the Mocha framework for testing, together with mockery for stubs.
 Run all tests using the 'mocha' command.
+Tests code is available in [/test](/test).
 
 ### Logging
 The application uses log4js for logging.
-Logging can be configured in log4js.config
+Logging can be configured in [log4js.config](log4js.config)
 
 ### Web services API
 
@@ -71,6 +74,8 @@ Returns a JSON array with information on car park availability in the following 
     ...
 ]
 ```
+
+***[Example](http://parking.thorprentow.dk/parking)***
 
 The service is implemented mainly in [AarhusParkingRetriever](lib/AarhusParkingRetriever.js).
 
