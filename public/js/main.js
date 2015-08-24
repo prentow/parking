@@ -66,16 +66,17 @@ function showWindow(marker, pinfo){
             var stopinfo = JSON.parse(body);
             var stopnames = stopinfo.stopnames;
             var cnt = "<h3>" + pinfo.name + "</h3>";
-            cnt += pinfo.count + " of " + pinfo.capacity + " spaces occupied.";
-            cnt += '<br>Onwards connections at the following stops:';
+            cnt += "<b>" + pinfo.count + "</b> of <b>" + pinfo.capacity + "</b> spaces occupied.";
+            cnt += '<br>Connections at the following stops:<br>';
             for(var i in stopnames){
-                cnt += "<br><br><b>";
+                cnt += "<br><b>";
                 cnt += stopnames[i] + "</b>";
                 var stops = stopinfo.stops[stopnames[i]];
+                cnt += "<table>"
                 for(var j in stops){
-                    cnt += "<br>";
-                    cnt += stops[j].time + ": " + stops[j].name + " -> "  + stops[j].direction;
+                    cnt += "<tr><td>" + stops[j].time + "</td><td>" + stops[j].name + "</td><td>-> "  + stops[j].direction + "</tr></td>";
                 }
+                cnt += "</table>"
             };
             var infowindow = new google.maps.InfoWindow({
                 content: cnt
@@ -92,6 +93,26 @@ function retrievedUserPosition(position) {
         title: 'You!',
         icon: 'img/sportscar.png'
     });
+    marker.addListener('click', showUserWindow(marker, position));
+}
+
+function showUserWindow(marker,position){
+    return function() {
+        httpGetAsync("/distances?lat=" + position.coords.latitude + "&lng=" + position.coords.longitude, function(body){
+            var distancesInfo = JSON.parse(body);
+            var cnt = "<h3>Distances</h3>";
+            cnt += "<table>"
+            for(var i in distancesInfo){
+                if(distancesInfo[i] != null)
+                    cnt += "<tr><td><b>" + distancesInfo[i].name + ":</b></td><td>" +  distancesInfo[i].durationText + "</td><td>" + distancesInfo[i].distanceText + "</td></tr>";
+            };
+            cnt += "</table>";
+            var infowindow = new google.maps.InfoWindow({
+                content: cnt
+            });
+            infowindow.open(window.map, marker);
+        });
+    }
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
