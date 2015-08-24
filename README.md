@@ -102,6 +102,8 @@ If no stops are nearby, return code is 404.
 }
 ```
 
+***[Example](http://parking.thorprentow.dk/stops?lat=56.14987481709147&lng=10.20609304489349)***
+
 The service is implemented through [NearbyStopsRetriever](lib/NearbyStopsRetriever.js) and [StopConnectionsRetriever.js](lib/StopConnectionsRetriever.js.js).
 
 #### GET /distances?lat=[float]&lng=[float]
@@ -122,6 +124,7 @@ Thus the list may be empty if, e.g., an ocean is in the way.
 ]
 ```
 
+***[Example](http://parking.thorprentow.dk/distances?lat=56.14580237840404&lng=10.19298824670439)***
 
 The service is implemented mainly in [DistanceRetriever](lib/DistanceRetriever.js).
 
