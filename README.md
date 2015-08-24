@@ -23,9 +23,9 @@ It shows a map of Aarhus, with a marker for each of the car parks. Each marker s
 Pictures of usage:
 ![Picture of usage](/doc/img/parking1.png "Parking availability")
 
-![Picture of usage](/doc/img/parking1.png "Departure information")
+![Picture of usage](/doc/img/parking2.png "Departure information")
 
-![Picture of usage](/doc/img/parking1.png "Time/distance information")
+![Picture of usage](/doc/img/parking3.png "Time/distance information")
 
 
 Deployment
