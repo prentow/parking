@@ -21,7 +21,11 @@ It shows a map of Aarhus, with a marker for each of the car parks. Each marker s
 * When user location is available, a car marker will show at the users location. Clicking this marker will open an info window, which shows a list of travel times and distances to each of the car parks.
 
 Pictures of usage:
-![alt text](/public/img/park1.png "Title")
+![Picture of usage](/doc/img/parking1.png "Parking availability")
+
+![Picture of usage](/doc/img/parking1.png "Departure information")
+
+![Picture of usage](/doc/img/parking1.png "Time/distance information")
 
 
 Deployment
