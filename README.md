@@ -97,7 +97,7 @@ If no stops are nearby, return code is 404.
 }
 ```
 
-The service is implemented through [NearbyStopsRetriever](lib/NearbyStopsRetriever.js) and [StopConnectionsRetriever](lib/StopConnectionsRetriever.js).
+The service is implemented through [NearbyStopsRetriever](lib/NearbyStopsRetriever.js) and [StopConnectionsRetriever.js](lib/StopConnectionsRetriever.js.js).
 
 #### GET /distances?lat=[float]&lng=[float]
 
